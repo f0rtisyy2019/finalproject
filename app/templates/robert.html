@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/robert.css') }}">
+{% endblock %}
+{% block body_class %}
+<body class="robert">
+{% endblock %}
+{% block content %}
+<div class="row" id="robert">
+    <div class="analysis"><img src="{{ url_for('static', filename='images/amz_mlfig1.png') }}"></div>
+    <div class="analysis"><img src="{{ url_for('static', filename='images/fighistplt.png') }}"></div>
+</div>
+{% endblock %}
+{% block script %}
+<script src="{{ url_for('static', filename='js/robert.js') }}"></script>
+{% endblock %}

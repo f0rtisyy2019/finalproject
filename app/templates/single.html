@@ -1,0 +1,67 @@
+{% extends "index.html" %}
+{% block body_class %}
+<body class="single">
+{% endblock %}
+{% block content %}
+<div id="single" class="row">
+    <div class="col-md-5">
+        <div class="instr">
+            <h3>Instuctions:</h3>
+            <ul>
+                <li>You have $10000 to invest</li>
+                <li>You can choose at most 3 symbols</li>
+                <li>You must input a start date</li>
+                <li>We will calculate the performance</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <form class="navbar-form" action="/result" method="POST">
+            <div class="form-group">
+                <input class="name" name="name" type="text" class="form-control" placeholder="name" required>
+                <input class="email" name="email" type="text" class="form-control" placeholder="email">
+                <input class="start_date" name="start_date" type="date" min="2015-01-01" value="2018-07-05">
+
+                <div class="tickercontainer">
+                    <input class="ticker1" name="ticker1" list="all_tickers1" type="text" class="form-control"
+                        placeholder="ticker1" required><span class="tickerValue1 value">$0</span>
+                    <datalist id="all_tickers1">
+                    </datalist>
+                </div>
+
+                <div class="slidecontainer">
+                    <input class="amount1 slider" type="range" name="amount1" min="0" max="10000" value="0" required>
+                    <span class="slider1 max_value">10000</span>
+                </div>
+
+                <div class="tickercontainer">
+                    <input class="ticker2" name="ticker2" list="all_tickers2" type="text" class="form-control"
+                        placeholder="ticker2"><span class="tickerValue2 value">$0</span>
+                    <datalist id="all_tickers2">
+                    </datalist>
+                </div>
+
+                <div class="slidecontainer">
+                    <input class="amount2 slider" type="range" name="amount2" min="0" max="10000" value="0">
+                    <span class="slider2 max_value">10000</span>
+                </div>
+
+                <div class="tickercontainer">
+                    <input class="ticker3" name="ticker3" list="all_tickers3" type="text" class="form-control"
+                        placeholder="ticker3"><span class="tickerValue3 value">$0</span>
+                    <datalist id="all_tickers3">
+                    </datalist>
+                </div>
+
+                <div class="slidecontainer">
+                    <input class="amount3 slider" type="range" name="amount3" min="0" max="10000" value="0">
+                    <span class="slider3 max_value">10000</span>
+                </div>
+
+            </div>
+            <div stlye="clear: both;"></div>
+            <button id="submit" type="submit" class="btn btn-default">Go</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

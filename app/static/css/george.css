@@ -1,0 +1,31 @@
+.col-md-12.jumbotron {
+    padding: 7px;
+    height: 320px;
+    background: url('../images/used_car.jpg') no-repeat 100% 100%;
+    background-size: 100% auto;
+    padding-top: 30px;
+}
+
+.tableauPlaceholder {
+    margin: auto;
+}
+
+.price_model {
+    margin-bottom: 20px;
+}
+
+.price_model .block_title {
+    font-size: 25px;
+    color: rgba(51, 122, 183, .81);
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.car_price_result {
+    font-size: 25px;
+    color: rgba(51, 122, 183, .81);
+    font-weight: bold;
+    position: relative;
+    top: 16px;
+    left: 13px;
+}

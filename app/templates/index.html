@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stock</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block style %}
+  {% endblock %}
+</head>
+{% block body_class %}
+<body class="home">
+{% endblock %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <!-- <h1>Stockpy</h1>
+        <p>Use the interactive charts below to explore the dataset</p> -->
+      </div>
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="home"><a href="/">Home</a></li>
+        <li role="presentation" class="single"><a href="/single">Single</a></li>
+        <li role="presentation" class="robert"><a href="/robert">Amazon</a></li>
+        <li role="presentation" class="ali"><a href="/ali">Sports</a></li>
+        <li role="presentation" class="carmelo"><a href="/carmelo">Portfolio</a></li>
+        <li role="presentation" class="aftab"><a href="/aftab">Gun Violence</a></li>
+        <li role="presentation" class="adriel"><a href="/adriel">Stock</a></li>
+        <li role="presentation" class="george"><a href="/george">Automotive</a></li>
+      </ul>
+    </div>
+    {% block content %}
+    <div class="row" id="index">
+      <div class="col-md-5">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Stocks: Gainers</h3>
+          </div>
+          <div id="stocks_gainers" class="panel-body"></div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Stocks: Losers</h3>
+          </div>
+          <div id="stocks_losers" class="panel-body"></div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="well">
+          <h5>SELECT Symbol:</h5>
+          <select id="selDataset"></select>
+          <div id="symbol-metadata" class="panel-body"></div>
+        </div>
+        <div id="stock_1"></div>
+      </div>
+    </div>
+    {% endblock %}
+  </div>
+  
+  <footer>Copyright 2019 by Stockpy</footer>
+  <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js?ver=20150811"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  {% block script %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="{{ url_for('static', filename='js/stocks.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% endblock %}
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var bodyClass = $('body').attr('class');
+      $('body.' + bodyClass + ' li.' + bodyClass).addClass('active');
+    });
+  </script>
+</body>
+
+</html>

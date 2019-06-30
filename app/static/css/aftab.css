@@ -1,0 +1,11 @@
+.col-md-12.jumbotron {
+    padding: 7px;
+    height: 620px;
+    background: url('../images/gun_violence.png') no-repeat 100% 100%;
+    background-size: 100% auto;
+    padding-top: 30px;
+}
+
+.tableauPlaceholder {
+    margin: auto;
+}

@@ -1,0 +1,11 @@
+.col-md-12.jumbotron {
+    padding: 7px;
+    height: 500px;
+    background: url('../images/nba.jpg') no-repeat 100% 100%;
+    background-size: 100% auto;
+    padding-top: 30px;
+}
+
+.tableauPlaceholder {
+    margin: auto;
+}

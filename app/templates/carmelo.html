@@ -1,0 +1,139 @@
+{% extends "index.html" %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/carmelo.css') }}">
+{% endblock %}
+{% block body_class %}
+<body class="carmelo">
+{% endblock %}
+{% block content %}
+<div id="single" class="row">
+    <div class="col-md-7">
+     <form class="navbar-form" action="/carmelo" method="POST">
+
+         <div class="form-group">
+             <input class="start_date" name="start_date" type="date" min="01/01/2000" value="01/01/2019">
+
+             <div class="tickercontainer">
+                 <input class="ticker1" name="ticker1" list="all_tickers1" type="text" class="form-control"
+                     placeholder="ticker1" required><span class="tickerValue1 value">$0</span>
+                 <datalist id="all_tickers1">
+                 </datalist>
+             </div>
+
+             <div class="slidecontainer">
+                 <input class="amount1 slider" type="range" name="amount1" min="0" max="10000" value="0" required>
+                 <span class="slider1 max_value">10000</span>
+             </div>
+
+             <div class="tickercontainer">
+                 <input class="ticker2" name="ticker2" list="all_tickers2" type="text" class="form-control"
+                     placeholder="ticker2"><span class="tickerValue2 value">$0</span>
+                 <datalist id="all_tickers2">
+                 </datalist>
+             </div>
+
+             <div class="slidecontainer">
+                 <input class="amount2 slider" type="range" name="amount2" min="0" max="10000" value="0">
+                 <span class="slider2 max_value">10000</span>
+             </div>
+
+             <div class="tickercontainer">
+                 <input class="ticker3" name="ticker3" list="all_tickers3" type="text" class="form-control"
+                     placeholder="ticker3"><span class="tickerValue3 value">$0</span>
+                 <datalist id="all_tickers3">
+                 </datalist>
+             </div>
+
+             <div class="slidecontainer">
+                 <input class="amount3 slider" type="range" name="amount3" min="0" max="10000" value="0">
+                 <span class="slider3 max_value">10000</span>
+             </div>
+
+         </div>
+         <div stlye="clear: both;"></div>
+         <button id="submit" type="submit" class="btn btn-default">Go</button>
+
+
+         <div class="header">
+             <h2>
+                 Simulated Results
+             </h2>
+         </div>
+
+      
+      
+     </form>
+<div id="chart"></div>
+<div id="chart1"></div>
+<div id="chart2"></div>
+
+     <!-- D3.js -->
+     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     <!-- Plotly.js -->
+     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  
+  <!-- SCATTER -->
+     <script type="text/javascript">
+         var myData = '{{ graphJSON }}';
+         // console.log(myData);
+      
+         var graphs = myData;
+
+         var graphs_str = graphs.replace(/&#34;/g, '"');
+         console.log(graphs_str);
+
+         var figure = JSON.parse(graphs_str);
+     
+         Plotly.newPlot('chart',figure.data, figure.layout);        
+
+     </script>
+
+      <!-- SCATTER3d -->
+     <script type="text/javascript">
+         var myData1 = '{{ graphJSON1 }}';
+         // console.log(myData);
+      
+         var graphs1 = myData1;
+
+         var graphs_str1 = graphs1.replace(/&#34;/g, '"');
+         console.log(graphs_str1);
+
+         var figure1 = JSON.parse(graphs_str1);
+     
+         Plotly.newPlot('chart1',figure1.data, figure1.layout);        
+
+     </script>
+
+
+
+ <!-- RADAR -->
+     <script type="text/javascript">
+         var myData2 = '{{ graphJSON2 }}';
+         // console.log(myData);
+      
+         var graphs2 = myData2;
+
+         var graphs_str2 = graphs2.replace(/&#34;/g, '"');
+         console.log(graphs_str2);
+
+         var figure2 = JSON.parse(graphs_str2);
+     
+         Plotly.newPlot('chart2',figure2.data, figure2.layout);        
+
+     </script>
+
+
+
+
+ </div>
+</div>
+{% endblock %}
+{% block script %}
+<script src="{{ url_for('static', filename='js/carmelo.js') }}"></script>
+{% endblock %}
